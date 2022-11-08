@@ -15,6 +15,7 @@ public class Main {
   private static final String TASK_SEPARATOR =
       "---------------------------------------------------";
 
+
   public static void main(String[] args) throws IOException {
     String[] fruits = {"apple", "lemon", "pineapple", "watermelon", "avocado", "apricot"};
     System.out.println("Задание 1");
