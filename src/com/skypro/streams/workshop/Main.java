@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -89,16 +90,23 @@ public class Main {
      * @return Ассоциативный массив фруктов и их идентификаторов
      */
     public static Map<Integer, FruitWithId> collectTwoFruitsWithLongNames(List<FruitWithId> fruits) {
-        Map<Integer, FruitWithId> result = new HashMap<>();
-        for (FruitWithId fruit : fruits) {
-            if (fruit.getName().length() > 5) {
-                result.put(fruit.getId(), fruit);
-                if (result.size() > 1) {
-                    break;
-                }
-            }
-        }
-        return result;
+       return fruits
+                .stream()
+                .filter(e -> e.getName().length() > 5).skip(2)
+                .collect(Collectors.toMap(FruitWithId::getId, e -> e));
+
+
+
+//        Map<Integer, FruitWithId> result = new HashMap<>();
+//        for (FruitWithId fruit : fruits) {
+//            if (fruit.getName().length() > 5) {
+//                result.put(fruit.getId(), fruit);
+//                if (result.size() > 1) {
+//                    break;
+//                }
+//            }
+//        }
+//        return result;
     }
 
     /**
