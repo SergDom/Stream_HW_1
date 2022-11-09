@@ -67,10 +67,17 @@ public class Main {
      * @param fruits Список фруктов
      */
     public static void printFruits(List<String> fruits) {
-        Collections.sort(fruits);
-        for (String fruit : fruits) {
-            System.out.println(fruit.toUpperCase());
-        }
+
+        fruits.stream()
+                .map(e -> e.toUpperCase())
+                .sorted()
+                .forEach(System.out::println);
+
+
+//        Collections.sort(fruits);
+//        for (String fruit : fruits) {
+//            System.out.println(fruit.toUpperCase());
+//        }
     }
 
     /**
