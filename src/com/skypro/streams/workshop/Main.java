@@ -8,6 +8,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+
 /**
  * В этом задании вам нужно переписать предложенные методы с помощью Stream API таким образом,
  * чтобы вывод программы не изменился, но все методы были переписаны с помощью Stream API
