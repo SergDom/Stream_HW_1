@@ -118,12 +118,21 @@ public class Main {
      * @return список названий фруктов в нижнем регистре
      */
     public static List<String> getAllFruitsFromFilesInLowerCase(List<List<String>> fruitsFromFiles) {
-        List<String> result = new ArrayList<>();
-        for (List<String> fruitList : fruitsFromFiles) {
-            for (String fruit : fruitList) {
-                result.add(fruit.toLowerCase());
-            }
-        }
-        return result;
+
+
+        List<String> fruitsList = fruitsFromFiles
+                .stream()
+                .flatMap(e -> e.stream())
+                .map(e->e.toLowerCase())
+                .collect(Collectors.toList());
+
+//        List<String> result = new ArrayList<>();
+//        for (List<String> fruitList : fruitsFromFiles) {
+//            for (String fruit : fruitList) {
+//                result.add(fruit.toLowerCase());
+//            }
+//        }
+//        return result;
+        return fruitsList;
     }
 }
